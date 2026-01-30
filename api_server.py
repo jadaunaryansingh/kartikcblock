@@ -621,6 +621,16 @@ async def root():
         return FileResponse("rag_frontend.html", media_type="text/html")
     return {"message": "AI Battle Arena - RAG System", "status": "ready"}
 
+@app.get("/favicon.ico")
+async def favicon():
+    """Serve favicon to prevent 404 errors"""
+    favicon_path = "favicon.ico"
+    if os.path.exists(favicon_path):
+        return FileResponse(favicon_path, media_type="image/x-icon")
+    # Return empty response if favicon doesn't exist
+    from fastapi.responses import Response
+    return Response(content=b"", media_type="image/x-icon")
+
 @app.get("/health")
 async def health():
     """Health check"""

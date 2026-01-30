@@ -778,8 +778,9 @@
             const startTime = Date.now();
             
             try {
-                // Make API request
-                const response = await fetch('http://localhost:8000/aibattle', {
+                // Make API request (use relative URL for deployment compatibility)
+                const apiUrl = window.location.origin + '/aibattle';
+                const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
