@@ -780,6 +780,10 @@
             try {
                 // Make API request (use relative URL for deployment compatibility)
                 const apiUrl = window.location.origin + '/aibattle';
+                console.log('🔍 API URL:', apiUrl);
+                console.log('🌐 Origin:', window.location.origin);
+                console.log('📍 Full URL:', window.location.href);
+                
                 const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: {
